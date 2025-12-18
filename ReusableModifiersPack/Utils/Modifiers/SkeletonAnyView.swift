@@ -7,13 +7,6 @@
 
 import SwiftUI
 
-/// A view modifier that displays a skeleton loading state overlay.
-///
-/// Example usage:
-/// ```swift
-/// Text("Content")
-///     .skeleton(isLoading: isLoading)
-/// ```
 public struct SkeletonAnyViewModifier: ViewModifier {
     let isLoading: Bool
     let cornerRadius: CGFloat
@@ -89,14 +82,7 @@ public struct SkeletonAnyViewModifier: ViewModifier {
 }
 
 extension View {
-    /// Applies a skeleton loading state overlay to the view.
-    ///
-    /// - Parameters:
-    ///   - isLoading: A boolean that determines whether to show the skeleton or the actual content.
-    ///   - cornerRadius: The corner radius of the skeleton. Default is 8.
-    ///   - shimmer: Whether to show a shimmer animation. Default is true.
-    ///   - shimmerColor: The color of the shimmer effect. Default is white with 60% opacity.
-    /// - Returns: A modified view that shows a skeleton loading state when isLoading is true.
+    
     public func skeleton(
         isLoading: Bool,
         cornerRadius: CGFloat = 8,

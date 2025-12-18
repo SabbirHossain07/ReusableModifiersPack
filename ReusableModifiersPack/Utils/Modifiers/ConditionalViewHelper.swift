@@ -7,16 +7,6 @@
 
 import SwiftUI
 
-/// A utility view that conditionally displays one of two views based on a boolean condition.
-///
-/// Example usage:
-/// ```swift
-/// ConditionalView(if: isLoggedIn) {
-///     Text("Welcome!")
-/// } else: {
-///     Text("Please login")
-/// }
-/// ```
 public struct ConditionalView<TrueContent: View, FalseContent: View>: View {
     let condition: Bool
     let trueContent: () -> TrueContent
@@ -41,14 +31,6 @@ public struct ConditionalView<TrueContent: View, FalseContent: View>: View {
     }
 }
 
-/// A utility view that conditionally displays a view based on a boolean condition.
-///
-/// Example usage:
-/// ```swift
-/// ConditionalView(if: shouldShow) {
-///     Text("Visible")
-/// }
-/// ```
 public struct ConditionalViewOptional<Content: View>: View {
     let condition: Bool
     let content: () -> Content
@@ -71,13 +53,7 @@ public struct ConditionalViewOptional<Content: View>: View {
 // MARK: - View Extensions
 
 extension View {
-    /// Conditionally applies a view modifier based on a boolean condition.
-    ///
-    /// Example usage:
-    /// ```swift
-    /// Text("Hello")
-    ///     .if(isBold) { $0.bold() }
-    /// ```
+    
     @ViewBuilder
     public func `if`<Content: View>(
         _ condition: Bool,
@@ -90,13 +66,6 @@ extension View {
         }
     }
     
-    /// Conditionally applies one of two view modifiers based on a boolean condition.
-    ///
-    /// Example usage:
-    /// ```swift
-    /// Text("Hello")
-    ///     .if(isBold, then: { $0.bold() }, else: { $0.italic() })
-    /// ```
     @ViewBuilder
     public func `if`<TrueContent: View, FalseContent: View>(
         _ condition: Bool,

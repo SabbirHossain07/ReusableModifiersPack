@@ -7,13 +7,6 @@
 
 import SwiftUI
 
-/// A view modifier that applies rounded corners and a subtle shadow to create a card-like appearance.
-///
-/// Example usage:
-/// ```swift
-/// Text("Card Content")
-///     .roundedCardShadow(cornerRadius: 16, shadowRadius: 8)
-/// ```
 public struct RoundedCardShadowModifier: ViewModifier {
     let cornerRadius: CGFloat
     let shadowRadius: CGFloat
@@ -49,15 +42,7 @@ public struct RoundedCardShadowModifier: ViewModifier {
 }
 
 extension View {
-    /// Applies a rounded card shadow effect to the view.
-    ///
-    /// - Parameters:
-    ///   - cornerRadius: The radius of the rounded corners. Default is 12.
-    ///   - shadowRadius: The blur radius of the shadow. Default is 8.
-    ///   - shadowColor: The color of the shadow. Default is black.
-    ///   - shadowOpacity: The opacity of the shadow. Default is 0.1.
-    ///   - backgroundColor: The background color of the card. Default is white.
-    /// - Returns: A modified view with rounded corners and shadow.
+   
     public func roundedCardShadow(
         cornerRadius: CGFloat = 12,
         shadowRadius: CGFloat = 8,

@@ -7,13 +7,6 @@
 
 import SwiftUI
 
-/// A view modifier that applies a shake animation when an error state is triggered.
-///
-/// Example usage:
-/// ```swift
-/// TextField("Email", text: $email)
-///     .shakeOnError(isError: $showError)
-/// ```
 public struct ShakeOnErrorModifier: ViewModifier {
     @Binding var isError: Bool
     @State private var shakeOffset: CGFloat = 0
@@ -37,7 +30,7 @@ public struct ShakeOnErrorModifier: ViewModifier {
     public func body(content: Content) -> some View {
         content
             .offset(x: shakeOffset)
-            .onChange(of: isError) { newValue in
+            .onChange(of: isError) { _,newValue in
                 if newValue {
                     performShake()
                 }
@@ -70,14 +63,7 @@ public struct ShakeOnErrorModifier: ViewModifier {
 }
 
 extension View {
-    /// Applies a shake animation when the error state changes to true.
-    ///
-    /// - Parameters:
-    ///   - isError: A binding to a boolean that triggers the shake when set to true.
-    ///   - shakeCount: The number of shakes. Default is 4.
-    ///   - shakeAmount: The amount of horizontal offset for the shake. Default is 10.
-    ///   - animationDuration: The total duration of the shake animation. Default is 0.5 seconds.
-    /// - Returns: A modified view that shakes when an error occurs.
+  
     public func shakeOnError(
         isError: Binding<Bool>,
         shakeCount: Int = 4,

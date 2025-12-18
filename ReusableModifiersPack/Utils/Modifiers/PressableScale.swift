@@ -7,15 +7,6 @@
 
 import SwiftUI
 
-/// A view modifier that applies a scale animation when the view is pressed.
-///
-/// Example usage:
-/// ```swift
-/// Button(action: {}) {
-///     Text("Press Me")
-/// }
-/// .pressableScale()
-/// ```
 public struct PressableScaleModifier: ViewModifier {
     @State private var isPressed = false
     
@@ -47,12 +38,7 @@ public struct PressableScaleModifier: ViewModifier {
 }
 
 extension View {
-    /// Applies a pressable scale effect that animates when the view is pressed.
-    ///
-    /// - Parameters:
-    ///   - scale: The scale factor when pressed. Default is 0.95 (5% smaller).
-    ///   - animation: The animation to use for the scale effect. Default is a spring animation.
-    /// - Returns: A modified view with pressable scale animation.
+
     public func pressableScale(
         scale: CGFloat = 0.95,
         animation: Animation = .spring(response: 0.3, dampingFraction: 0.6)
